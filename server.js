@@ -6,8 +6,7 @@ const cors = require('cors');
 dotenv.config();
 
 const authRoutes = require('./routes/authRoutes'); 
-const userRoutes = require('./routes/user'); 
-const productRoutes = require('./routes/product'); 
+const productRoutes = require('./routes/productRoutes'); 
 const app = express();
 
 // Middleware
@@ -21,7 +20,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Define routes
 app.use('/auth', authRoutes); 
-app.use('/users', userRoutes); 
 app.use('/api/products', productRoutes); 
 
 const PORT = process.env.PORT || 5000;
